@@ -1,0 +1,8 @@
+django==2.0.6
+django-allauth
+django-grappelli
+djangorestframework
+psycopg2
+django-oauth-toolkit
+djutil
+django-extensions

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    List of submissions  <a href="/submissions/new">New Submission</a>
+    {% if submissions %}
+        <ul>
+        {% for submission in submissions %}
+            <li>
+                Student: <a href="/submissions/{{ submission.id }}/">{{ submission.student_name }}</a> -
+                Assignment: <a href="/assignments/{{submission.assignment.id}}/">{{submission.assignment.title}}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Submissions are available.</p>
+    {% endif %}
+{% endblock%}

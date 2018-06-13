@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3> Submission Details </h3>
+    {% if submission %}
+        Student Name: {{ submission.student_name }} <br/>
+        Date: {{ submission.date }} <br/>
+        Raw data add: {{ submission.raw_data_add }} <br/>
+        Metadata1: {{ submission.metadata1 }} <br/>
+        Metadata2: {{ submission.metadata2 }} <br/>
+        <form action="{% url 'submission-delete' pk=submission.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Delete">
+        </form>
+        <a href="/submissions/{{ submission.id }}/edit"><button class="save btn btn-default">Edit</button></a>
+    {% else %}
+        <p>No Submissions are available.</p>
+    {% endif %}
+{% endblock %}

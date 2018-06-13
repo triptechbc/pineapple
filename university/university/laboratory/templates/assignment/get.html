@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3> Assignment Details </h3>
+    {% if assignment %}
+        Title: {{ assignment.title }} <br/>
+        Text: {{ assignment.text }} <br/>
+        Date: {{ assignment.date }} <br/>
+        Metadata1: {{ assignment.metadata1 }} <br/>
+        Metadata2: {{ assignment.metadata2 }} <br/>
+        <br/>
+        {% if assignment.submissions %}
+            <b>Total Submissions = {{assignment.submissions|length}}</b> <br/>
+            <a href="/assignments/{{ assignment.id }}/submissions"> View Submissions</a>
+        {% else %}
+            <p>No submissions are available.</p>
+        {% endif %}
+        <br/><br/>
+        <form action="{% url 'assignment-delete' pk=assignment.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Delete the Assignment">
+        </form>
+        <a href="/assignments/{{ assignment.id }}/edit"><button class="save btn btn-default">Edit</button></a>
+    {% else %}
+        <p>No Assignments are available.</p>
+    {% endif %}
+{% endblock %}

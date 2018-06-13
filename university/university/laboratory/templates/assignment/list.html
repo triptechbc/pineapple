@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    List of assignments  <a href="/assignments/new">New Assignment</a>
+    {% if assignments %}
+        <ul>
+        {% for assignment in assignments %}
+            <li>
+                <a href="/assignments/{{ assignment.id }}/">{{ assignment.title }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Assignments are available.</p>
+    {% endif %}
+{% endblock%}

@@ -1,0 +1,19 @@
+Assuming you have python installed with virtualenv
+
+1) Create a virtualenv for the project "virtualenv university_venv"
+2) Activate the virtualenv "source university_venv/bin/activate"
+3) Go inside the project directory "path/university"
+4) Install dependencies "pip install -r requirements.txt"
+5) Check your database settings in settings.py #78 and make the changes (We are using postgres)
+6) Create a database with the name given in settings.py
+7) run "python manage.py migrate" This will create the necessary tables
+8) Create a superuser for admin panel "python manage.py createsuperuser"
+
+We are all set now
+To initiate project run "python manage.py runserver"
+
+This will run the server on port 8000
+
+To view data goto: localhost:8000/admin (This is the default admin panel provided with django)
+
+To view our forms goto: localhost:8000/

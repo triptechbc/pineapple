@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3> Submission details for Assignment <a href="/assignments/{{assignment.id}}">{{assignment.title}}</a></h3>
+    {% if submissions %}
+        {% for submission in submissions %}
+                Student Name: <a href="/submissions/{{submission.id}}">{{ submission.student_name }}</a> <br/>
+                Date: {{ submission.date }} <br/>
+                Raw data add: {{ submission.raw_data_add }} <br/>
+                Metadata1: {{ submission.metadata1 }} <br/>
+                Metadata2: {{ submission.metadata2 }} <br/><br/>
+        {% endfor %}
+    {% else %}
+        <p>No Submissions are available.</p>
+    {% endif %}
+{% endblock %}
